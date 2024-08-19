@@ -1,6 +1,6 @@
 import { Locator, Page, expect } from "@playwright/test";
 
-export class ButtonPage {
+export class ModalPage {
   readonly page: Page;
   readonly navigationBar: string;
   readonly header: Locator;
@@ -22,14 +22,14 @@ export class ButtonPage {
 
     // OH! Fill this! Check the HTML and fill the selectors. Use whatever selector you want.
     this.buttonById = page.locator("#button1");
-    this.buttonByName = page.locator('[name = "clickingOnMe"]');
-    this.buttonByClass = page.locator('.click-click-click');
-    this.buttonByText = page.getByText('This is THE button');
-    this.buttonByXPath = page.getByText('XPATH', {exact: true});
-    this.buttonByPartialText = page.getByText('Partial link');
-    this.buttonByDataQA = page.locator('[data-qa = "customAttribute-button"]');
+    this.buttonByName;
+    this.buttonByClass;
+    this.buttonByText;
+    this.buttonByXPath;
+    this.buttonByPartialText;
+    this.buttonByDataQA;
 
-    this.buttonOutsideDiv = page.getByText('Button mimo');
+    this.buttonOutsideDiv;
   }
 
   async visit() {

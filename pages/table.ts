@@ -1,14 +1,14 @@
 import { Locator, Page, expect } from "@playwright/test";
 
-export class ButtonPage {
+export class TablePage {
   readonly page: Page;
   readonly navigationBar: string;
   readonly header: Locator;
 
-  readonly buttonById: Locator;
-  readonly buttonByName: Locator;
-  readonly buttonByClass: Locator;
-  readonly buttonByText: Locator;
+  readonly tableByClass: Locator;
+  readonly tableLvl: Locator;
+  readonly tableAnimal: Locator;
+  readonly tableSize: Locator;
   readonly buttonByXPath: Locator;
   readonly buttonByPartialText: Locator;
   readonly buttonByDataQA: Locator;
@@ -21,15 +21,15 @@ export class ButtonPage {
     this.header = page.getByRole("heading", { name: "Tlačítka" });
 
     // OH! Fill this! Check the HTML and fill the selectors. Use whatever selector you want.
-    this.buttonById = page.locator("#button1");
-    this.buttonByName = page.locator('[name = "clickingOnMe"]');
-    this.buttonByClass = page.locator('.click-click-click');
-    this.buttonByText = page.getByText('This is THE button');
-    this.buttonByXPath = page.getByText('XPATH', {exact: true});
-    this.buttonByPartialText = page.getByText('Partial link');
-    this.buttonByDataQA = page.locator('[data-qa = "customAttribute-button"]');
+    this.tableByClass = page.locator("td.qa-animal-name");
+    this.tableLvl = page.getByText("LVL úžasnosti");
+    this.tableAnimal = page.locator("td.qa-animal-name");
+    this.tableSize = page.locator("th.Velikost");
+    this.buttonByXPath;
+    this.buttonByPartialText;
+    this.buttonByDataQA;
 
-    this.buttonOutsideDiv = page.getByText('Button mimo');
+    this.buttonOutsideDiv;
   }
 
   async visit() {

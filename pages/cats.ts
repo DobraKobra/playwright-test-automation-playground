@@ -10,6 +10,7 @@ export class CatsPage {
   readonly apocalypseButton: Locator;
 
   readonly catCards: Locator;
+  readonly catCounter: Locator;
 
   constructor(page: Page) {
     this.page = page;
@@ -17,19 +18,54 @@ export class CatsPage {
     this.header = page.getByRole("heading", { name: "Tlačítka" });
 
     // OH! Fill this! Check the HTML and fill the selectors. Use whatever selector you want.
-    this.addCatButton;
-    this.removeCaButton;
-    this.apocalypseButton;
-    this.catCards;
-  }
+    this.addCatButton = page.locator("#addItem");
+    this.removeCaButton = page.locator("#removeItem");
+    this.apocalypseButton = page.locator("#removeAll");
+    this.catCards = page.getByAltText("Kočka");
+
+    this.catCounter = page.locator("#counter")
+  };
 
   async visit() {
     await this.page.goto("/adding.html");
-  }
+  };
 
-  // or you can use expext(pages.catPage.catCards).toHaveCount(3)
-  // or different number
+  async expectToAddMoreCats() {
+
+    const CatClassLocator = this.page.locator('.card-img-top');
+
+    for (const catCards of await CatClassLocator.all()) {
+      await expect.soft(catCards).toBeVisible();
+    };
+
+
+ // getCountOfCatCards = async () => {
+ //   return await this.catCards.count();
+ // };
+ // getCountOfParagraphs = async () => {
+ //   return await this.locatorParagraph.count();
+  };
+
+  async expectToRemoveCats() {
+
+    const CatClassLocator = this.page.locator('.card-img-top');
+
+    for (const catCards of await CatClassLocator.all()) {
+    await expect.soft(catCards).toHaveCount(0);
+    };
+  };
+
+  async expectToRemoveAllCats() {
+
+    const CatClassLocator = this.page.locator('.card-img-top');
+
+    for (const catCards of await CatClassLocator.all()) {
+    await expect.soft(catCards).toHaveCount(0);
+    };
+  };
+
   getCountOfCatCards = async () => {
     return await this.catCards.count();
-  };
-}
+};
+
+};

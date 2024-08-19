@@ -7,10 +7,15 @@ test.describe("Login", () => {
 
   test.beforeEach(async ({ page }) => {
     pages = new AllPages(page);
-    await pages.visit("/login.html");
+    await pages.loginPage.visit();
   });
 
-  test("template for you", async ({ page }) => {
+  test("successful login", async ({ page }) => {
     //pises kod sem :)
+    await pages.loginPage.userName.fill("czechitas");
+    await pages.loginPage.password.fill("budoucnost")
+    await pages.loginPage.loginButton.click();
+    //await pages.loginPage.checkIsLoggedIn();
+    await expect(pages.loginPage.loggedInAltText).toBeVisible();
   });
 });
