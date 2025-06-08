@@ -30,42 +30,8 @@ export class CatsPage {
     await this.page.goto("/adding.html");
   };
 
-  async expectToAddMoreCats() {
-
-    const CatClassLocator = this.page.locator('.card-img-top');
-
-    for (const catCards of await CatClassLocator.all()) {
-      await expect.soft(catCards).toBeVisible();
-    };
-
-
- // getCountOfCatCards = async () => {
- //   return await this.catCards.count();
- // };
- // getCountOfParagraphs = async () => {
- //   return await this.locatorParagraph.count();
-  };
-
-  async expectToRemoveCats() {
-
-    const CatClassLocator = this.page.locator('.card-img-top');
-
-    for (const catCards of await CatClassLocator.all()) {
-    await expect.soft(catCards).toHaveCount(0);
-    };
-  };
-
-  async expectToRemoveAllCats() {
-
-    const CatClassLocator = this.page.locator('.card-img-top');
-
-    for (const catCards of await CatClassLocator.all()) {
-    await expect.soft(catCards).toHaveCount(0);
-    };
-  };
 
   getCountOfCatCards = async () => {
     return await this.catCards.count();
 };
-
 };

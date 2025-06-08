@@ -39,14 +39,14 @@ export class LocatorsPage {
   }
 
   // or you can use expect(pages.catPage.catCards).toHaveCount(3)
-  // or different number
+  
   getCountOfParagraphs = async () => {
     return await this.locatorParagraph.count();
   };
 
   async expectToFindAllClasses() {
     // this.header.waitFor({ state: "visible" });
-    //const ClassLocator = this.page.locator('.this-is-interesting-paragraph');
+    
 
     const ClassLocator = this.page.locator('.this-is-interesting-paragraph');
 
@@ -56,8 +56,7 @@ export class LocatorsPage {
   };
 
   async expectToFindAllXPathClasses() {
-    // this.header.waitFor({ state: "visible" });
-    //const ClassLocator = this.page.locator('.this-is-interesting-paragraph');
+    
 
     const XPathClassLocator = this.page.locator('//*[@class = "this-is-interesting-paragraph"]');
 
@@ -67,8 +66,7 @@ export class LocatorsPage {
   };
 
   async expectToAddLikes() {
-    // this.header.waitFor({ state: "visible" });
-    //const ClassLocator = this.page.locator('.this-is-interesting-paragraph');
+   
 
     const locatorLikeCountButton = this.page.locator("#lvlAwesome");
 

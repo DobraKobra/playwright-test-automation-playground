@@ -37,7 +37,7 @@ export class ButtonPage {
   }
 
   async expectToAllButtonsAreClicked() {
-    // this.header.waitFor({ state: "visible" });
+
     const buttons = this.page.getByRole("button");
 
     for (const button of await buttons.all()) {
