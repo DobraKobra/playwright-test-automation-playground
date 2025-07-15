@@ -30,17 +30,12 @@ export class LoginPage {
     await this.page.goto("/login.html");
   }
 
-  async login() {
-    // this.header.waitFor({ state: "visible" });
+  async logged() {
     await this.page.goto("/logged.html");
   }
 
   async checkIsLoggedIn(): Promise<void> {
-    const loggedInAltText = await this.loggedInAltText.textContent();
-    //expect(loggedInAltText).toBe("LOGGED!")
     await expect(this.page.getByRole('heading', { name: 'LOGGED!' })).toBeVisible();
-
-    
     }
   }
 

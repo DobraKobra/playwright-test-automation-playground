@@ -33,7 +33,7 @@ export class TablePage {
   }
 
   async visit() {
-    await this.page.goto("/selectorsButtons.html");
+    await this.page.goto("/table.html");
   }
 
   async expectToAllButtonsAreClicked() {

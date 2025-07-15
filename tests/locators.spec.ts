@@ -58,19 +58,14 @@ test.describe("Locators", () => {
     
     await pages.locatorsPage.locatorLikeButton.click();
     await pages.locatorsPage.getCountOfLikes();
-   // await expect(pages.locatorsPage.locatorLikeCountButton).toHaveCount(1);
     await pages.locatorsPage.locatorLikeButton.click();
     await pages.locatorsPage.getCountOfLikes();
-    //await expect(pages.locatorsPage.locatorLikeCountButton).toHaveCount(2);
     await pages.locatorsPage.locatorLikeButton.click();
     await pages.locatorsPage.getCountOfLikes();
-    //await expect(pages.locatorsPage.locatorLikeCountButton).toHaveCount(3);
     await pages.locatorsPage.locatorLikeButton.click();
     await pages.locatorsPage.getCountOfLikes();
-    //await expect(pages.locatorsPage.locatorLikeCountButton).toHaveCount(4);
     await pages.locatorsPage.locatorLikeButton.click();
     await pages.locatorsPage.getCountOfLikes();
-    //await expect(pages.locatorsPage.locatorLikeCountButton).toHaveCount(5);
 
   }); 
 

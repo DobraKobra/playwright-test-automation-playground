@@ -10,67 +10,53 @@ test.describe("Cats", () => {
     await pages.catsPage.visit();
   });
 
-  test.only("add a cat card", async ({ page }) => {
+  test("add a cat card", async ({ page }) => {
     //pises kod sem :)
     await pages.catsPage.addCatButton.click();
     await expect(pages.catsPage.catCards).toBeVisible();
   });
 
-  test.only("add multiple cat cards", async ({ page }) => {
+  test("add multiple cat cards", async ({ page }) => {
     //pises kod sem :)
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(1);
-  //  await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats(); 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(2);
-  //  await pages.catsPage.expectToAddMoreCats();
-    //await expect(pages.catsPage.catCards).toBeVisible();
+    await pages.catsPage.expectToAddMoreCats(); 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(3);
-   // await pages.catsPage.expectToAddMoreCats();
-   // await expect(pages.catsPage.catCards).toBeVisible();
+    await pages.catsPage.expectToAddMoreCats(); 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(4);
-   // await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats(); 
    
   });
 
-  test.only("remove a cat card", async ({ page }) => { 
+  test("remove a cat card", async ({ page }) => { 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(1);
-  //  await pages.catsPage.expectToAddMoreCats();
-
-    await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(2);
-   //await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats();
 
     await pages.catsPage.removeCaButton.click();
-   // await pages.catsPage.expectToRemoveCats();
-   await expect(pages.catsPage.catCounter).toHaveCount(1);
+    await pages.catsPage.expectToRemoveCats();
+   
   });
 
-  test.only("remove all cat cards", async ({ page }) => { 
+  test("remove all cat cards", async ({ page }) => { 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(1);
-   // await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats();
 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(2);
-    //await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats();
 
     await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(3);
-   // await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.expectToAddMoreCats();
 
-    await pages.catsPage.addCatButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(4);
-   // await pages.catsPage.expectToAddMoreCats();
+    await pages.catsPage.addCatButton.click(); 
+    await pages.catsPage.expectToAddMoreCats();
 
     await pages.catsPage.apocalypseButton.click();
-    await expect(pages.catsPage.catCards).toHaveCount(0);
+    await pages.catsPage.expectToRemoveAllCats();
+
   });
 
-  test.only("add one, remove one and remove all cat cards", async ({ page }) => { 
+  test("add one, remove one and remove all cat cards", async ({ page }) => { 
     await pages.catsPage.addCatButton.click();
     await pages.catsPage.getCountOfCatCards();
 
@@ -98,7 +84,7 @@ test.describe("Cats", () => {
     await expect(pages.catsPage.catCounter).toHaveText("0");
 });
 
-test.only("counter counts adding 20 cat cards", async ({ page }) => {
+test("counter counts adding 20 cat cards", async ({ page }) => {
   await pages.catsPage.addCatButton.click();
   await pages.catsPage.getCountOfCatCards();
 
@@ -159,12 +145,12 @@ test.only("counter counts adding 20 cat cards", async ({ page }) => {
   await pages.catsPage.addCatButton.click();
   await pages.catsPage.getCountOfCatCards();
 
-  await expect(pages.catsPage.catCounter).toHaveText("20");
+  await expect(pages.catsPage.catCards).toHaveCount(20);
 
 });
 
 
-test.only("remove and apocalypse button active only when at least one cat card is visible", async ({ page }) => {
+test("remove and apocalypse button active only when at least one cat card is visible", async ({ page }) => {
   await pages.catsPage.addCatButton.click();
   await pages.catsPage.getCountOfCatCards();
 

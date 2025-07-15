@@ -28,7 +28,6 @@ export class ButtonPage {
     this.buttonByXPath = page.getByText('XPATH', {exact: true});
     this.buttonByPartialText = page.getByText('Partial link');
     this.buttonByDataQA = page.locator('[data-qa = "customAttribute-button"]');
-
     this.buttonOutsideDiv = page.getByText('Button mimo');
   }
 

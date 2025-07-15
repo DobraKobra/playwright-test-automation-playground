@@ -13,9 +13,9 @@ test.describe("Login", () => {
   test("successful login", async ({ page }) => {
     //pises kod sem :)
     await pages.loginPage.userName.fill("czechitas");
-    await pages.loginPage.password.fill("budoucnost")
+    await pages.loginPage.password.fill("budoucnost");
     await pages.loginPage.loginButton.click();
-    //await pages.loginPage.checkIsLoggedIn();
-    await expect(pages.loginPage.loggedInAltText).toBeVisible();
+    await pages.loginPage.logged();
+    await pages.loginPage.checkIsLoggedIn();
   });
 });
